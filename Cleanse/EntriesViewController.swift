@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class EntriesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class EntriesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -17,8 +17,8 @@ class EntriesViewController: UIViewController, UICollectionViewDelegate, UIColle
     var books: [Book] = [] {
         didSet {
             
-            self.collectionView.reloadData()
-            
+            self.titleTableView.reloadData()
+
         }
     }
     
@@ -28,10 +28,14 @@ class EntriesViewController: UIViewController, UICollectionViewDelegate, UIColle
                   
               }
     }
+    @IBOutlet weak var titleTableView: UITableView!
     
     @IBOutlet weak var backi: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ref = Database.database().reference()
+
         
         let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
@@ -42,18 +46,9 @@ class EntriesViewController: UIViewController, UICollectionViewDelegate, UIColle
         queryforids { () -> Void in
             
         }
-        
-            var screenSize = collectionView.bounds
-            var screenWidth = screenSize.width
-            var screenHeight = screenSize.height
+        titleTableView.reloadData()
 
-          let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-                        layout.sectionInset = UIEdgeInsets(top: 5, left: 0, bottom: 10, right: 0)
-                    layout.itemSize = CGSize(width: screenWidth/2.3, height: screenWidth/1.35)
-                        layout.minimumInteritemSpacing = 0
-                        layout.minimumLineSpacing = 0
-
-            collectionView!.collectionViewLayout = layout
+    
         
         // Do any additional setup after loading the view.
     }
@@ -78,7 +73,7 @@ class EntriesViewController: UIViewController, UICollectionViewDelegate, UIColle
                     
                     self.books = newbooks
                     
-                    self.books = self.books.sorted(by: { $0.popularity ?? 0  > $1.popularity ?? 0 })
+                    self.books = self.books.sorted(by: { $0.date ?? "July 1"  > $1.date ?? "July 1" })
                     
                 }
                 
@@ -89,8 +84,8 @@ class EntriesViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
     
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
         
         
         let book = self.book(atIndexPath: indexPath)
@@ -135,28 +130,33 @@ class EntriesViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
     
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        
-        return books.count
-        
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let book = self.book(atIndexPath: indexPath)
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Books", for: indexPath) as! TitleCollectionViewCell
+  
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+         
+     return books.count
+
+     }
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+              
+
+              
+              let book = self.book(atIndexPath: indexPath)
+              
+              let cell = tableView.dequeueReusableCell(withIdentifier: "Home", for: indexPath) as! HomeTableViewCell
+                //            if book?.bookID == "Title" {
+                //
+                //                return cell
         
         let name = book?.name
 
             
-        cell.titlelabel.text = name
+        cell.datelabel.text = book?.name
             
         
         if let date3 = book?.date {
             
             
-            cell.datelabel.text = date3
+            cell.titlelabel.text = date3
         }
         
         //                cell.tapup.tag = indexPath.row
@@ -168,11 +168,7 @@ class EntriesViewController: UIViewController, UICollectionViewDelegate, UIColle
             cell.titleImage.kf.setImage(with: imageUrl)
             
             
-            
-            cell.titleImage.layer.cornerRadius = 5.0
-            cell.titleImage.clipsToBounds = true
-            cell.titleImage.alpha = 1
-            
+    
             
             
             
@@ -200,9 +196,7 @@ class EntriesViewController: UIViewController, UICollectionViewDelegate, UIColle
         cell.titlelabel.alpha = 1
         cell.titlelabel.alpha = 1
         
-        
-        
-        
+        cell.selectionStyle = .none
         
         return cell
         

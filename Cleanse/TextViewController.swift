@@ -230,6 +230,32 @@ class TextViewController: UIViewController, UITextViewDelegate {
         
     }
     
+    @IBAction func tapInfo(_ sender: Any) {
+        
+        let alert = UIAlertController(title: "How does it work?", message: "Close your eyes. Take a deep breathe. Focus on what's going on in your mind. Write as if no one else will read it. Don't worry about how well you write. If you have nothing to write, write about how you have nothing to write. Just keep writing. There is only one rule - just keep writing.", preferredStyle: .alert)
+                
+        alert.addAction(UIAlertAction(title: "I get the one rule - I'll just keep writing! ", style: .default, handler: { action in
+            switch action.style{
+            case .default:
+                print("default")
+          
+                    
+                         
+                
+            case .cancel:
+                print("cancel")
+                
+            case .destructive:
+                print("destructive")
+                
+                
+            }}))
+        
+        self.present(alert, animated: true, completion: nil)
+        
+        
+    }
+    
     override func viewDidDisappear(_ animated: Bool) {
         
         textone = ""
