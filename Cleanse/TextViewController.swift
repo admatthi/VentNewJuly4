@@ -113,18 +113,20 @@ class TextViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var authorftile: UILabel!
     @IBOutlet weak var titleoftile: UILabel!
     
-//    @objc func updateprogress() {
-//
-//        counter += 1
-//
-//        let progress = (Float(counter)/Float(900))
-//
-//        self.progressView.setProgress(Float(progress), animated: true)
-//
-////        titleoftile.text = String(counter)
-//        totaltime.text = "900"
-//
-//    }
+    @objc func updateprogress() {
+
+        countertimer += 1
+
+        let progress = (Float(countertimer)/Float(300))
+
+        self.progressView.setProgress(Float(progress), animated: true)
+
+        titleoftile.text = String(countertimer)
+        totaltime.text = "300"
+
+    }
+    
+    
     
     @IBOutlet weak var backimage: UIImageView!
     override func viewDidLoad() {
@@ -175,7 +177,7 @@ class TextViewController: UIViewController, UITextViewDelegate {
         
         let  imageUrl = URL(string: imageURLString)
         
-                titleoftile.text = selectedtitle
+//                titleoftile.text = selectedtitle
         
 //        titleoftile.text = "00:01"
         
@@ -191,7 +193,7 @@ class TextViewController: UIViewController, UITextViewDelegate {
         
         newText = textView.text
         
-//        let timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateprogress), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateprogress), userInfo: nil, repeats: true)
         
         
         //        if newText.count < 240 {
@@ -255,23 +257,28 @@ class TextViewController: UIViewController, UITextViewDelegate {
         
         
     }
+    var countertimer = Int()
+    
+    var timer = Timer()
     
     override func viewDidDisappear(_ animated: Bool) {
         
         textone = ""
         texttwo = ""
         textthree = ""
+        
+        timer.invalidate()
     }
     
     func showpropersummaries() {
         
         if counter == 0 {
             
-                        self.progressView.setProgress(0.0, animated: false)
+//                        self.progressView.setProgress(0.0, animated: false)
             
         } else {
-                        let progress = (Float(counter)/Float(arrayCount-1))
-                        self.progressView.setProgress(Float(progress), animated: true)
+//                        let progress = (Float(counter)/Float(arrayCount-1))
+//                        self.progressView.setProgress(Float(progress), animated: true)
         }
         
         if counter < headlines.count {
