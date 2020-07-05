@@ -14,6 +14,8 @@ pod 'Firebase/Storage'
 pod 'Purchases'
 pod 'MBProgressHUD'
 pod 'FBSDKCoreKit'
+pod 'CircleProgressView'
+
 
   target 'CleanseTests' do
     inherit! :search_paths

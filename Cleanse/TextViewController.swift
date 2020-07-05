@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CircleProgressView
 
 var selectedheadline = String()
 var dateformat = String()
@@ -14,6 +15,8 @@ var randomString = String()
 
 
 class TextViewController: UIViewController, UITextViewDelegate {
+    
+    @IBOutlet weak var circleProgress: CircleProgressView!
     
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -62,9 +65,9 @@ class TextViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var text: UILabel!
     
     func nextcount() {
-        
-        textView.text = ""
-        textView.textColor = UIColor.black
+//
+//        textView.text = ""
+//        textView.textColor = UIColor.black
         
         if counter > headlines.count-2 {
             
@@ -106,6 +109,7 @@ class TextViewController: UIViewController, UITextViewDelegate {
     //         return true
     //     }
     
+    @IBOutlet weak var timerlabel: UILabel!
     @IBAction func tapDismiss(_ sender: Any) {
         
         self.dismiss(animated: true, completion: nil)
@@ -115,52 +119,70 @@ class TextViewController: UIViewController, UITextViewDelegate {
     
     @objc func updateprogress() {
 
-        countertimer += 1
+        countertimer -= 1
 
-        let progress = (Float(countertimer)/Float(300))
+        let progress = (Float(countertimer)/Float(600))
 
-        self.progressView.setProgress(Float(progress), animated: true)
 
-        titleoftile.text = String(countertimer)
-        totaltime.text = "300"
+        self.circleProgress.setProgress(Double(progress), animated: true)
+        
+        
+        timerlabel.text = Double(countertimer).asString(style: .positional)
+        
 
     }
     
+ 
+    
+  
     
     
-    @IBOutlet weak var backimage: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         counter = 0
+        countertimer = 300
+        timerlabel.text = "5:00"
         arrayCount = headlines.count
         
         //        textView.returnKeyType = UIReturnKeyType.done
         
-        progressView.layer.cornerRadius = 5.0
-        progressView.clipsToBounds = true
-        
+//        progressView.layer.cornerRadius = 5.0
+//        progressView.clipsToBounds = true
+//
         textView.layer.cornerRadius = 5.0
         textView.clipsToBounds = true
-        
-        var transform : CGAffineTransform = CGAffineTransform(scaleX: 1.0, y: 3.0)
-        progressView.transform = transform
+//
+//        var transform : CGAffineTransform = CGAffineTransform(scaleX: 1.0, y: 3.0)
+//        progressView.transform = transform
         
         textView.delegate = self
         
         textView.text = ""
-        textView.textColor = UIColor.black
+        textView.textColor = UIColor.white
         
         textView.becomeFirstResponder()
         
         tapsave.layer.cornerRadius = 5.0
         tapsave.clipsToBounds = true
         
+        var imageURLString = selectedbackground
+          
+        var imageUrl = URL(string: imageURLString)
+                  
+        backimage.kf.setImage(with: imageUrl)
+
+        
+//        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.dark)
+//            let blurEffectView = UIVisualEffectView(effect: blurEffect)
+//            blurEffectView.frame = backimage.bounds
+//            blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+//            backimage.addSubview(blurEffectView)
         
         
         if headlines.count > 1 {
             
-            progressView.alpha = 1
+//            progressView.alpha = 1
             
             text.text = headlines[counter]
             
@@ -168,15 +190,15 @@ class TextViewController: UIViewController, UITextViewDelegate {
             
             
             
-            progressView.alpha = 0
+//            progressView.alpha = 0
             text.text = selectedheadline
             
         }
         
-        let imageURLString = selectedbackground
-        
-        let  imageUrl = URL(string: imageURLString)
-        
+//        let imageURLString = selectedbackground
+//
+//        let  imageUrl = URL(string: imageURLString)
+//
 //                titleoftile.text = selectedtitle
         
 //        titleoftile.text = "00:01"
@@ -192,6 +214,8 @@ class TextViewController: UIViewController, UITextViewDelegate {
         }
         
         newText = textView.text
+        
+        
         
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateprogress), userInfo: nil, repeats: true)
         
@@ -270,6 +294,7 @@ class TextViewController: UIViewController, UITextViewDelegate {
         timer.invalidate()
     }
     
+    @IBOutlet weak var backimage: UIImageView!
     func showpropersummaries() {
         
         if counter == 0 {
@@ -280,46 +305,46 @@ class TextViewController: UIViewController, UITextViewDelegate {
 //                        let progress = (Float(counter)/Float(arrayCount-1))
 //                        self.progressView.setProgress(Float(progress), animated: true)
         }
-        
+//
         if counter < headlines.count {
-            
-            if counter == 0 {
-                
-                if textone != "" {
-                    
-                    textView.text = textone
-                    
-                } else {
-                    
-                    textView.text = ""
-                    
-                }
-            }
-            
-            if counter == 1 {
-                
-                if texttwo != "" {
-                    
-                    textView.text = texttwo
-                } else {
-                    
-                    textView.text = ""
-                    
-                }
-            }
-            
-            if counter == 2 {
-                
-                if textthree != "" {
-                    
-                    textView.text = textthree
-                } else {
-                    
-                    textView.text = ""
-                    
-                }
-            }
-            
+//
+//            if counter == 0 {
+//
+//                if textone != "" {
+//
+//                    textView.text = textone
+//
+//                } else {
+//
+////                    textView.text = ""
+//
+//                }
+//            }
+//
+//            if counter == 1 {
+//
+//                if texttwo != "" {
+//
+//                    textView.text = texttwo
+//                } else {
+//
+//                    textView.text = ""
+//
+//                }
+//            }
+//
+//            if counter == 2 {
+//
+//                if textthree != "" {
+//
+//                    textView.text = textthree
+//                } else {
+//
+//                    textView.text = ""
+//
+//                }
+//            }
+//
             text.text = headlines[counter]
             
             
@@ -498,4 +523,14 @@ class TextViewController: UIViewController, UITextViewDelegate {
      }
      */
     
+}
+
+extension Double {
+  func asString(style: DateComponentsFormatter.UnitsStyle) -> String {
+    let formatter = DateComponentsFormatter()
+    formatter.allowedUnits = [.hour, .minute, .second, .nanosecond]
+    formatter.unitsStyle = style
+    guard let formattedString = formatter.string(from: self) else { return "" }
+    return formattedString
+  }
 }

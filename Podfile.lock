@@ -1,4 +1,5 @@
 PODS:
+  - CircleProgressView (1.2.0)
   - FBSDKCoreKit (7.1.1):
     - FBSDKCoreKit/Basics (= 7.1.1)
     - FBSDKCoreKit/Core (= 7.1.1)
@@ -91,6 +92,7 @@ PODS:
   - Purchases (3.4.0)
 
 DEPENDENCIES:
+  - CircleProgressView
   - FBSDKCoreKit
   - Firebase/Analytics
   - Firebase/Database
@@ -101,6 +103,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - CircleProgressView
     - FBSDKCoreKit
     - Firebase
     - FirebaseAnalytics
@@ -122,6 +125,7 @@ SPEC REPOS:
     - Purchases
 
 SPEC CHECKSUMS:
+  CircleProgressView: 6b5b091d59dc5e5d2fda84e637a40498cdc39937
   FBSDKCoreKit: b46507dc8b8cefed31d644e74d7cc30e2a715ef8
   Firebase: fc4cbf6f1592636431821ef9a3c557e4dfd9f268
   FirebaseAnalytics: 0ea640473474f036cabbc2576e20c2d63671c92f
@@ -142,6 +146,6 @@ SPEC CHECKSUMS:
   PromisesObjC: b48e0338dbbac2207e611750777895f7a5811b75
   Purchases: b8cac232e403ca51541a425a65992b902cecc044
 
-PODFILE CHECKSUM: 5a5d53a6b78602e214bd91455dd5ea47ee37755f
+PODFILE CHECKSUM: 15b04d738a409430b75bc910cca1d0f263fc4156
 
 COCOAPODS: 1.9.3
