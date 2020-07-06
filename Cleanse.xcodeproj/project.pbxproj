@@ -73,6 +73,7 @@
 		9DDD950424AFFD6300511521 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9DDD950324AFFD6300511521 /* GoogleService-Info.plist */; };
 		9DDD950524AFFD6300511521 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9DDD950324AFFD6300511521 /* GoogleService-Info.plist */; };
 		9DDD950624AFFD6300511521 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9DDD950324AFFD6300511521 /* GoogleService-Info.plist */; };
+		9DE4855924B3740D00DA7879 /* AnalyticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE4855824B3740C00DA7879 /* AnalyticsViewController.swift */; };
 		9DEF34D5236BBEFB003A3A41 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEF34D4236BBEFB003A3A41 /* HomeViewController.swift */; };
 		9DF6E6EE23AC8B6300DCB973 /* SleepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF6E6ED23AC8B6300DCB973 /* SleepViewController.swift */; };
 		9DF6E6F023AC8B6E00DCB973 /* DepressionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF6E6EF23AC8B6E00DCB973 /* DepressionViewController.swift */; };
@@ -152,6 +153,7 @@
 		9DD64A2E23760A1D00F159E5 /* HomeTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabViewController.swift; sourceTree = "<group>"; };
 		9DD9B3FF239C047A0061D960 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		9DDD950324AFFD6300511521 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9DE4855824B3740C00DA7879 /* AnalyticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewController.swift; sourceTree = "<group>"; };
 		9DEF34D4236BBEFB003A3A41 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		9DF6E6ED23AC8B6300DCB973 /* SleepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepViewController.swift; sourceTree = "<group>"; };
 		9DF6E6EF23AC8B6E00DCB973 /* DepressionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepressionViewController.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 			children = (
 				9D7360E6236513DC00DC6ACB /* AppDelegate.swift */,
 				9D328D0923651B26003768CF /* Main.storyboard */,
+				9DE4855824B3740C00DA7879 /* AnalyticsViewController.swift */,
 				9DD9B3FF239C047A0061D960 /* HomeTableViewCell.swift */,
 				9D328D112365F5DC003768CF /* DiscoverViewController.swift */,
 				9DF6E6ED23AC8B6300DCB973 /* SleepViewController.swift */,
@@ -614,6 +617,7 @@
 				9D503BBC237252AE0070F318 /* OverviewViewController.swift in Sources */,
 				9D0663B02367B3AA00385DEE /* Summary.swift in Sources */,
 				9D328D1A23662937003768CF /* TextViewController.swift in Sources */,
+				9DE4855924B3740D00DA7879 /* AnalyticsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
