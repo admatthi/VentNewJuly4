@@ -120,6 +120,102 @@ class TextViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var timerlabel: UILabel!
     @IBAction func tapDismiss(_ sender: Any) {
         
+        if textView.text != "" {
+            
+            if headlines.count == 1 {
+                  
+                  ref?.child("Entries").child(uid).child(selectedbookid).removeValue()
+                  
+                  ref?.child("Entries").child(uid).childByAutoId().updateChildValues(["Author" : selectedauthorname, "Name" : selectedtitle, "Headline1" : headlines[0], "Author Image" : selectedauthorimage, "Image" : selectedbackground, "Text0" : textView.text!, "Date" : dateformat])
+                  
+                  ref?.child("Favorites").child(uid).child(selectedbookid).updateChildValues([ "Name" : selectedtitle, "Headline1" : headlines[0], "Image" : selectedbackground])
+                  
+                  
+              }
+              
+              if headlines.count == 2 {
+                  
+                  ref?.child("Entries").child(uid).child(selectedbookid).removeValue()
+                  
+                  ref?.child("Entries").child(uid).childByAutoId().updateChildValues(["Author" : selectedauthorname, "Name" : selectedtitle, "Headline1" : headlines[0], "Headline2" : headlines[1], "Author Image" : selectedauthorimage, "Image" : selectedbackground, "Text0" : textView.text!, "Date" : dateformat])
+                  
+                  ref?.child("Favorites").child(uid).child(selectedbookid).updateChildValues([ "Name" : selectedtitle, "Headline1" : headlines[0], "Headline2" : headlines[1], "Image" : selectedbackground])
+                  
+                  
+              }
+              
+              
+              if headlines.count == 3 {
+                  
+                  
+                  
+                  ref?.child("Entries").child(uid).child(randomString).updateChildValues(["Author" : selectedauthorname, "Name" : selectedtitle, "Headline1" : headlines[0], "Headline2" : headlines[1], "Headline3" : headlines[2], "Author Image" : selectedauthorimage, "Image" : selectedbackground, "Text0" : textView.text!, "Date" : dateformat])
+                  
+                  ref?.child("Favorites").child(uid).child(selectedbookid).updateChildValues([ "Name" : selectedtitle, "Headline1" : headlines[0], "Headline2" : headlines[1], "Headline3" : headlines[2], "Image" : selectedbackground])
+                  
+                  
+              }
+              
+              if headlines.count == 4 {
+                  
+                  
+                  
+                  ref?.child("Entries").child(uid).child(randomString).updateChildValues(["Author" : selectedauthorname, "Name" : selectedtitle, "Headline1" : headlines[0], "Headline2" : headlines[1], "Headline3" : headlines[2],"Headline4" : headlines[3], "Author Image" : selectedauthorimage, "Image" : selectedbackground, "Text0" : textView.text!, "Date" : dateformat])
+                  
+                  ref?.child("Favorites").child(uid).child(selectedbookid).updateChildValues([ "Name" : selectedtitle, "Headline1" : headlines[0], "Headline2" : headlines[1], "Headline3" : headlines[2], "Headline4" : headlines[3], "Image" : selectedbackground])
+                  
+                  
+              }
+              
+              if headlines.count == 5 {
+                  
+                  
+                  
+                  ref?.child("Entries").child(uid).child(randomString).updateChildValues(["Author" : selectedauthorname, "Name" : selectedtitle, "Headline1" : headlines[0], "Headline2" : headlines[1], "Headline3" : headlines[2],"Headline4" : headlines[3],"Headline5" : headlines[4], "Author Image" : selectedauthorimage, "Image" : selectedbackground, "Text0" : textView.text!, "Date" : dateformat])
+                  
+                  ref?.child("Favorites").child(uid).child(selectedbookid).updateChildValues([ "Name" : selectedtitle, "Headline1" : headlines[0], "Headline2" : headlines[1], "Headline3" : headlines[2], "Headline4" : headlines[3], "Headline5" : headlines[4], "Image" : selectedbackground])
+                  
+                  
+              }
+              
+              if headlines.count == 6 {
+                  
+                  
+                  
+                  ref?.child("Entries").child(uid).child(randomString).updateChildValues(["Author" : selectedauthorname, "Name" : selectedtitle, "Headline1" : headlines[0], "Headline2" : headlines[1], "Headline3" : headlines[2],"Headline4" : headlines[3],"Headline5" : headlines[4],"Headline6" : headlines[5], "Author Image" : selectedauthorimage, "Image" : selectedbackground, "Text0" : textView.text!, "Date" : dateformat])
+                  
+                  ref?.child("Favorites").child(uid).child(selectedbookid).updateChildValues([ "Name" : selectedtitle, "Headline1" : headlines[0], "Headline2" : headlines[1], "Headline3" : headlines[2], "Headline4" : headlines[3], "Headline5" : headlines[4], "Headline6" : headlines[5], "Image" : selectedbackground])
+                  
+                  
+              }
+              
+              if headlines.count == 7 {
+                  
+                  
+                  
+                  ref?.child("Entries").child(uid).child(randomString).updateChildValues(["Author" : selectedauthorname, "Name" : selectedtitle, "Headline1" : headlines[0], "Headline2" : headlines[1], "Headline3" : headlines[2],"Headline4" : headlines[3],"Headline5" : headlines[4],"Headline6" : headlines[5],"Headline7" : headlines[6], "Author Image" : selectedauthorimage, "Image" : selectedbackground, "Text0" : textView.text!, "Date" : dateformat])
+                  
+                  ref?.child("Favorites").child(uid).child(selectedbookid).updateChildValues([ "Name" : selectedtitle, "Headline1" : headlines[0], "Headline2" : headlines[1], "Headline3" : headlines[2], "Headline4" : headlines[3], "Headline5" : headlines[4], "Headline6" : headlines[5], "Headline7" : headlines[6], "Image" : selectedbackground])
+                  
+                  
+              }
+              
+              if headlines.count == 8 {
+                  
+                  
+                  
+                  ref?.child("Entries").child(uid).child(randomString).updateChildValues(["Author" : selectedauthorname, "Name" : selectedtitle, "Headline1" : headlines[0], "Headline2" : headlines[1], "Headline3" : headlines[2],"Headline4" : headlines[3],"Headline5" : headlines[4],"Headline6" : headlines[5],"Headline7" : headlines[6],"Headline8" : headlines[7], "Author Image" : selectedauthorimage, "Image" : selectedbackground, "Text0" : textView.text!, "Date" : dateformat])
+                  
+                  ref?.child("Favorites").child(uid).child(selectedbookid).updateChildValues([ "Name" : selectedtitle, "Headline1" : headlines[0], "Headline2" : headlines[1], "Headline3" : headlines[2], "Headline4" : headlines[3], "Headline5" : headlines[4], "Headline6" : headlines[5], "Headline7" : headlines[6], "Headline8" : headlines[7], "Image" : selectedbackground])
+                  
+                  
+              }
+            
+            self.dismiss(animated: true, completion: nil)
+
+        }
+        
+        
         self.dismiss(animated: true, completion: nil)
     }
     @IBOutlet weak var authorftile: UILabel!
@@ -145,6 +241,8 @@ class TextViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        ref = Database.database().reference()
+
         counter = 0
         countertimer = 300
         timerlabel.text = "5:00"
@@ -167,9 +265,7 @@ class TextViewController: UIViewController, UITextViewDelegate {
         textView.textColor = UIColor.white
         
         textView.becomeFirstResponder()
-        
-        tapsave.layer.cornerRadius = 5.0
-        tapsave.clipsToBounds = true
+      
         
         var imageURLString = selectedbackground
           
@@ -208,6 +304,7 @@ class TextViewController: UIViewController, UITextViewDelegate {
         
 //        titleoftile.text = "00:01"
         
+        queryforinfo()
         
         if textone != "" {
             
@@ -238,6 +335,30 @@ class TextViewController: UIViewController, UITextViewDelegate {
         //
         
         // Do any additional setup after loading the view.
+    }
+    
+    func queryforinfo() {
+                
+        ref?.child("Users").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            let value = snapshot.value as? NSDictionary
+            
+            if let time = value?["Time"] as? Int {
+                         
+                         mytime = time
+                         
+                     }
+                     
+                     
+                     if let words = value?["Words"] as? Int {
+                         
+                         mywords = words
+                         
+                     }
+      
+     
+        })
+        
     }
     
     
@@ -443,7 +564,7 @@ class TextViewController: UIViewController, UITextViewDelegate {
                 
                 ref?.child("Entries").child(uid).child(selectedbookid).removeValue()
                 
-                ref?.child("Entries").child(uid).childByAutoId().updateChildValues(["Author" : selectedauthorname, "Name" : selectedtitle, "Headline1" : headlines[0], "Author Image" : selectedauthorimage, "Image" : selectedbackground, "Text\(counter)" : textView.text!, "Date" : dateformat])
+                ref?.child("Entries").child(uid).childByAutoId().updateChildValues(["Author" : selectedauthorname, "Name" : selectedtitle, "Headline1" : headlines[0], "Author Image" : selectedauthorimage, "Image" : selectedbackground, "Text0" : textView.text!, "Date" : dateformat])
                 
                 ref?.child("Favorites").child(uid).child(selectedbookid).updateChildValues([ "Name" : selectedtitle, "Headline1" : headlines[0], "Image" : selectedbackground])
                 
@@ -454,7 +575,7 @@ class TextViewController: UIViewController, UITextViewDelegate {
                 
                 ref?.child("Entries").child(uid).child(selectedbookid).removeValue()
                 
-                ref?.child("Entries").child(uid).childByAutoId().updateChildValues(["Author" : selectedauthorname, "Name" : selectedtitle, "Headline1" : headlines[0], "Headline2" : headlines[1], "Author Image" : selectedauthorimage, "Image" : selectedbackground, "Text\(counter)" : textView.text!, "Date" : dateformat])
+                ref?.child("Entries").child(uid).childByAutoId().updateChildValues(["Author" : selectedauthorname, "Name" : selectedtitle, "Headline1" : headlines[0], "Headline2" : headlines[1], "Author Image" : selectedauthorimage, "Image" : selectedbackground, "Text0" : textView.text!, "Date" : dateformat])
                 
                 ref?.child("Favorites").child(uid).child(selectedbookid).updateChildValues([ "Name" : selectedtitle, "Headline1" : headlines[0], "Headline2" : headlines[1], "Image" : selectedbackground])
                 
@@ -466,7 +587,7 @@ class TextViewController: UIViewController, UITextViewDelegate {
                 
                 
                 
-                ref?.child("Entries").child(uid).child(randomString).updateChildValues(["Author" : selectedauthorname, "Name" : selectedtitle, "Headline1" : headlines[0], "Headline2" : headlines[1], "Headline3" : headlines[2], "Author Image" : selectedauthorimage, "Image" : selectedbackground, "Text\(counter)" : textView.text!, "Date" : dateformat])
+                ref?.child("Entries").child(uid).child(randomString).updateChildValues(["Author" : selectedauthorname, "Name" : selectedtitle, "Headline1" : headlines[0], "Headline2" : headlines[1], "Headline3" : headlines[2], "Author Image" : selectedauthorimage, "Image" : selectedbackground, "Text0" : textView.text!, "Date" : dateformat])
                 
                 ref?.child("Favorites").child(uid).child(selectedbookid).updateChildValues([ "Name" : selectedtitle, "Headline1" : headlines[0], "Headline2" : headlines[1], "Headline3" : headlines[2], "Image" : selectedbackground])
                 
@@ -477,7 +598,7 @@ class TextViewController: UIViewController, UITextViewDelegate {
                 
                 
                 
-                ref?.child("Entries").child(uid).child(randomString).updateChildValues(["Author" : selectedauthorname, "Name" : selectedtitle, "Headline1" : headlines[0], "Headline2" : headlines[1], "Headline3" : headlines[2],"Headline4" : headlines[3], "Author Image" : selectedauthorimage, "Image" : selectedbackground, "Text\(counter)" : textView.text!, "Date" : dateformat])
+                ref?.child("Entries").child(uid).child(randomString).updateChildValues(["Author" : selectedauthorname, "Name" : selectedtitle, "Headline1" : headlines[0], "Headline2" : headlines[1], "Headline3" : headlines[2],"Headline4" : headlines[3], "Author Image" : selectedauthorimage, "Image" : selectedbackground, "Text0" : textView.text!, "Date" : dateformat])
                 
                 ref?.child("Favorites").child(uid).child(selectedbookid).updateChildValues([ "Name" : selectedtitle, "Headline1" : headlines[0], "Headline2" : headlines[1], "Headline3" : headlines[2], "Headline4" : headlines[3], "Image" : selectedbackground])
                 
@@ -488,7 +609,7 @@ class TextViewController: UIViewController, UITextViewDelegate {
                 
                 
                 
-                ref?.child("Entries").child(uid).child(randomString).updateChildValues(["Author" : selectedauthorname, "Name" : selectedtitle, "Headline1" : headlines[0], "Headline2" : headlines[1], "Headline3" : headlines[2],"Headline4" : headlines[3],"Headline5" : headlines[4], "Author Image" : selectedauthorimage, "Image" : selectedbackground, "Text\(counter)" : textView.text!, "Date" : dateformat])
+                ref?.child("Entries").child(uid).child(randomString).updateChildValues(["Author" : selectedauthorname, "Name" : selectedtitle, "Headline1" : headlines[0], "Headline2" : headlines[1], "Headline3" : headlines[2],"Headline4" : headlines[3],"Headline5" : headlines[4], "Author Image" : selectedauthorimage, "Image" : selectedbackground, "Text0" : textView.text!, "Date" : dateformat])
                 
                 ref?.child("Favorites").child(uid).child(selectedbookid).updateChildValues([ "Name" : selectedtitle, "Headline1" : headlines[0], "Headline2" : headlines[1], "Headline3" : headlines[2], "Headline4" : headlines[3], "Headline5" : headlines[4], "Image" : selectedbackground])
                 
@@ -499,7 +620,7 @@ class TextViewController: UIViewController, UITextViewDelegate {
                 
                 
                 
-                ref?.child("Entries").child(uid).child(randomString).updateChildValues(["Author" : selectedauthorname, "Name" : selectedtitle, "Headline1" : headlines[0], "Headline2" : headlines[1], "Headline3" : headlines[2],"Headline4" : headlines[3],"Headline5" : headlines[4],"Headline6" : headlines[5], "Author Image" : selectedauthorimage, "Image" : selectedbackground, "Text\(counter)" : textView.text!, "Date" : dateformat])
+                ref?.child("Entries").child(uid).child(randomString).updateChildValues(["Author" : selectedauthorname, "Name" : selectedtitle, "Headline1" : headlines[0], "Headline2" : headlines[1], "Headline3" : headlines[2],"Headline4" : headlines[3],"Headline5" : headlines[4],"Headline6" : headlines[5], "Author Image" : selectedauthorimage, "Image" : selectedbackground, "Text0" : textView.text!, "Date" : dateformat])
                 
                 ref?.child("Favorites").child(uid).child(selectedbookid).updateChildValues([ "Name" : selectedtitle, "Headline1" : headlines[0], "Headline2" : headlines[1], "Headline3" : headlines[2], "Headline4" : headlines[3], "Headline5" : headlines[4], "Headline6" : headlines[5], "Image" : selectedbackground])
                 
@@ -510,7 +631,7 @@ class TextViewController: UIViewController, UITextViewDelegate {
                 
                 
                 
-                ref?.child("Entries").child(uid).child(randomString).updateChildValues(["Author" : selectedauthorname, "Name" : selectedtitle, "Headline1" : headlines[0], "Headline2" : headlines[1], "Headline3" : headlines[2],"Headline4" : headlines[3],"Headline5" : headlines[4],"Headline6" : headlines[5],"Headline7" : headlines[6], "Author Image" : selectedauthorimage, "Image" : selectedbackground, "Text\(counter)" : textView.text!, "Date" : dateformat])
+                ref?.child("Entries").child(uid).child(randomString).updateChildValues(["Author" : selectedauthorname, "Name" : selectedtitle, "Headline1" : headlines[0], "Headline2" : headlines[1], "Headline3" : headlines[2],"Headline4" : headlines[3],"Headline5" : headlines[4],"Headline6" : headlines[5],"Headline7" : headlines[6], "Author Image" : selectedauthorimage, "Image" : selectedbackground, "Text0" : textView.text!, "Date" : dateformat])
                 
                 ref?.child("Favorites").child(uid).child(selectedbookid).updateChildValues([ "Name" : selectedtitle, "Headline1" : headlines[0], "Headline2" : headlines[1], "Headline3" : headlines[2], "Headline4" : headlines[3], "Headline5" : headlines[4], "Headline6" : headlines[5], "Headline7" : headlines[6], "Image" : selectedbackground])
                 
@@ -521,7 +642,7 @@ class TextViewController: UIViewController, UITextViewDelegate {
                 
                 
                 
-                ref?.child("Entries").child(uid).child(randomString).updateChildValues(["Author" : selectedauthorname, "Name" : selectedtitle, "Headline1" : headlines[0], "Headline2" : headlines[1], "Headline3" : headlines[2],"Headline4" : headlines[3],"Headline5" : headlines[4],"Headline6" : headlines[5],"Headline7" : headlines[6],"Headline8" : headlines[7], "Author Image" : selectedauthorimage, "Image" : selectedbackground, "Text\(counter)" : textView.text!, "Date" : dateformat])
+                ref?.child("Entries").child(uid).child(randomString).updateChildValues(["Author" : selectedauthorname, "Name" : selectedtitle, "Headline1" : headlines[0], "Headline2" : headlines[1], "Headline3" : headlines[2],"Headline4" : headlines[3],"Headline5" : headlines[4],"Headline6" : headlines[5],"Headline7" : headlines[6],"Headline8" : headlines[7], "Author Image" : selectedauthorimage, "Image" : selectedbackground, "Text0" : textView.text!, "Date" : dateformat])
                 
                 ref?.child("Favorites").child(uid).child(selectedbookid).updateChildValues([ "Name" : selectedtitle, "Headline1" : headlines[0], "Headline2" : headlines[1], "Headline3" : headlines[2], "Headline4" : headlines[3], "Headline5" : headlines[4], "Headline6" : headlines[5], "Headline7" : headlines[6], "Headline8" : headlines[7], "Image" : selectedbackground])
                 

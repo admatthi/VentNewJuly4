@@ -438,7 +438,7 @@
                                         <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="trackFillColor">
-                                        <color key="value" red="0.41172596810000001" green="0.41585105659999999" blue="0.39540147780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="progress">
                                         <real key="value" value="0.0"/>
@@ -450,19 +450,25 @@
                                         <real key="value" value="3"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="trackBorderColor">
-                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="value" red="0.41172596810000001" green="0.41585105659999999" blue="0.39540147780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="clockwise" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="trackBorderWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What would you do if you were dying?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CKp-dq-QKU">
-                                <rect key="frame" x="20" y="148" width="374" height="55"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What would you do if you were dying?" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CKp-dq-QKU">
+                                <rect key="frame" x="24" y="148" width="374" height="55"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="23"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day 1" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="96w-qi-afN">
-                                <rect key="frame" x="185" y="217" width="44" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day 1" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="96w-qi-afN">
+                                <rect key="frame" x="24" y="217" width="374" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="Sqt-Ix-l2a"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -544,26 +550,17 @@
                                     <action selector="tapBack:" destination="Js2-iJ-cIc" eventType="touchUpInside" id="KwP-iA-ntc"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="85i-V8-bL1">
-                                <rect key="frame" x="0.0" y="206.5" width="147" height="60"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="147" id="0XC-mr-apN"/>
-                                    <constraint firstAttribute="height" constant="60" id="R54-cc-TAj"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
-                                <state key="normal" title="  Next Prompt" image="Shuffle">
-                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="tapContinue:" destination="Js2-iJ-cIc" eventType="touchUpInside" id="PRZ-TT-KD4"/>
-                                </connections>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="600" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HRF-6f-9c1">
+                                <rect key="frame" x="364" y="63.5" width="27" height="19"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3XL-kc-clf">
-                                <rect key="frame" x="183.5" y="424" width="47" height="47"/>
+                                <rect key="frame" x="61" y="53" width="42" height="42"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="47" id="G9K-7n-WEW"/>
-                                    <constraint firstAttribute="width" constant="47" id="HSd-hz-XIn"/>
+                                    <constraint firstAttribute="height" constant="42" id="XEx-0d-a7w"/>
+                                    <constraint firstAttribute="width" constant="42" id="oPb-vg-dJH"/>
                                 </constraints>
                                 <state key="normal" image="Artboard Copy 4-1">
                                     <color key="titleColor" red="0.77437604670000004" green="0.85429912330000002" blue="0.94857118979999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -572,39 +569,33 @@
                                     <action selector="tapContinue:" destination="Js2-iJ-cIc" eventType="touchUpInside" id="PbJ-Gw-cZY"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="600" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HRF-6f-9c1">
-                                <rect key="frame" x="364" y="63" width="27" height="19"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="YFU-6m-RaK" firstAttribute="top" secondItem="5f4-QP-Kb0" secondAttribute="top" constant="47" id="0q3-16-7BP"/>
                             <constraint firstItem="hQx-xS-Mt2" firstAttribute="bottom" secondItem="KAM-7J-g9b" secondAttribute="bottom" constant="27" id="46Q-7J-N7h"/>
-                            <constraint firstItem="CKp-dq-QKU" firstAttribute="leading" secondItem="4th-w9-EeP" secondAttribute="trailing" constant="-47" id="7tU-C1-gRK"/>
+                            <constraint firstItem="96w-qi-afN" firstAttribute="leading" secondItem="hQx-xS-Mt2" secondAttribute="leading" constant="24" id="7oF-Bh-W2s"/>
+                            <constraint firstItem="CKp-dq-QKU" firstAttribute="leading" secondItem="4th-w9-EeP" secondAttribute="trailing" constant="-43" id="7tU-C1-gRK"/>
                             <constraint firstItem="e3r-zj-vko" firstAttribute="leading" secondItem="hQx-xS-Mt2" secondAttribute="leading" constant="11" id="FCH-Wr-onQ"/>
                             <constraint firstItem="e3r-zj-vko" firstAttribute="top" secondItem="hQx-xS-Mt2" secondAttribute="top" constant="9" id="GZu-vK-tdG"/>
+                            <constraint firstItem="hQx-xS-Mt2" firstAttribute="trailing" secondItem="96w-qi-afN" secondAttribute="trailing" constant="16" id="KkL-gv-e8r"/>
                             <constraint firstItem="Bqd-ST-Ccj" firstAttribute="trailing" secondItem="hQx-xS-Mt2" secondAttribute="trailing" id="Oep-vB-Djg"/>
                             <constraint firstItem="WaW-6v-lai" firstAttribute="top" secondItem="CKp-dq-QKU" secondAttribute="bottom" constant="49" id="Qe4-YJ-N9a"/>
                             <constraint firstItem="hQx-xS-Mt2" firstAttribute="trailing" secondItem="WaW-6v-lai" secondAttribute="trailing" constant="20" id="SdS-Sl-dcm"/>
+                            <constraint firstItem="96w-qi-afN" firstAttribute="top" secondItem="CKp-dq-QKU" secondAttribute="bottom" constant="14" id="TMR-qA-F7u"/>
+                            <constraint firstItem="3XL-kc-clf" firstAttribute="leading" secondItem="e3r-zj-vko" secondAttribute="trailing" constant="8" id="UxW-sl-Aog"/>
                             <constraint firstItem="WaW-6v-lai" firstAttribute="leading" secondItem="hQx-xS-Mt2" secondAttribute="leading" constant="20" id="VXq-Me-tQC"/>
                             <constraint firstItem="Bqd-ST-Ccj" firstAttribute="leading" secondItem="hQx-xS-Mt2" secondAttribute="leading" id="Ygd-jC-dIM"/>
                             <constraint firstItem="Bqd-ST-Ccj" firstAttribute="top" secondItem="5f4-QP-Kb0" secondAttribute="top" id="Yo2-MU-mPN"/>
                             <constraint firstItem="CKp-dq-QKU" firstAttribute="top" secondItem="hQx-xS-Mt2" secondAttribute="top" constant="104" id="g3o-Tq-iHk"/>
                             <constraint firstItem="hQx-xS-Mt2" firstAttribute="trailing" secondItem="KAM-7J-g9b" secondAttribute="trailing" constant="16" id="hMY-HB-RPS"/>
-                            <constraint firstItem="hQx-xS-Mt2" firstAttribute="trailing" secondItem="CKp-dq-QKU" secondAttribute="trailing" constant="20" id="jlr-bP-k19"/>
+                            <constraint firstItem="hQx-xS-Mt2" firstAttribute="trailing" secondItem="CKp-dq-QKU" secondAttribute="trailing" constant="16" id="jlr-bP-k19"/>
                             <constraint firstAttribute="bottom" secondItem="Bqd-ST-Ccj" secondAttribute="bottom" id="ju7-m3-Mni"/>
-                            <constraint firstItem="96w-qi-afN" firstAttribute="top" secondItem="CKp-dq-QKU" secondAttribute="bottom" constant="14" id="kNK-NM-3ml"/>
-                            <constraint firstItem="3XL-kc-clf" firstAttribute="top" secondItem="96w-qi-afN" secondAttribute="bottom" constant="187" id="lJY-dz-g9f"/>
-                            <constraint firstItem="3XL-kc-clf" firstAttribute="centerX" secondItem="5f4-QP-Kb0" secondAttribute="centerX" id="lhm-vq-F28"/>
                             <constraint firstItem="HRF-6f-9c1" firstAttribute="centerX" secondItem="YFU-6m-RaK" secondAttribute="centerX" constant="1.5" id="pW5-Fa-CLj"/>
                             <constraint firstItem="4th-w9-EeP" firstAttribute="centerY" secondItem="CKp-dq-QKU" secondAttribute="centerY" constant="-72" id="qdV-oz-0tl"/>
-                            <constraint firstItem="85i-V8-bL1" firstAttribute="leading" secondItem="5f4-QP-Kb0" secondAttribute="leading" id="s9O-kC-CqZ"/>
                             <constraint firstItem="HRF-6f-9c1" firstAttribute="centerY" secondItem="YFU-6m-RaK" secondAttribute="centerY" id="uYA-ir-Fh2"/>
-                            <constraint firstItem="96w-qi-afN" firstAttribute="centerX" secondItem="5f4-QP-Kb0" secondAttribute="centerX" id="wud-eu-vzr"/>
-                            <constraint firstItem="CKp-dq-QKU" firstAttribute="leading" secondItem="hQx-xS-Mt2" secondAttribute="leading" constant="20" id="wwS-wl-hgP"/>
+                            <constraint firstItem="CKp-dq-QKU" firstAttribute="leading" secondItem="hQx-xS-Mt2" secondAttribute="leading" constant="24" id="wwS-wl-hgP"/>
+                            <constraint firstItem="3XL-kc-clf" firstAttribute="centerY" secondItem="e3r-zj-vko" secondAttribute="centerY" id="yl5-ft-13e"/>
                             <constraint firstItem="hQx-xS-Mt2" firstAttribute="trailing" secondItem="YFU-6m-RaK" secondAttribute="trailing" constant="12" id="zHD-uK-JYs"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hQx-xS-Mt2"/>
@@ -613,7 +604,6 @@
                     <connections>
                         <outlet property="backimage" destination="Bqd-ST-Ccj" id="sYb-XT-GCd"/>
                         <outlet property="circleProgress" destination="YFU-6m-RaK" id="1qs-IT-Fl9"/>
-                        <outlet property="tapsave" destination="85i-V8-bL1" id="KtQ-0w-yXW"/>
                         <outlet property="text" destination="CKp-dq-QKU" id="XzB-Wg-IDQ"/>
                         <outlet property="textView" destination="WaW-6v-lai" id="vqg-ld-dFW"/>
                         <outlet property="timerlabel" destination="HRF-6f-9c1" id="i0k-l3-rxf"/>
@@ -1718,8 +1708,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="c35-gA-9NY"/>
-        <segue reference="Lo7-dB-OB6"/>
+        <segue reference="aVh-dq-dUK"/>
+        <segue reference="Mhc-Zy-cbR"/>
         <segue reference="24a-eo-MIq"/>
     </inferredMetricsTieBreakers>
     <resources>
@@ -1743,7 +1733,6 @@
         <image name="Pause" width="60" height="60"/>
         <image name="Read" width="60" height="60"/>
         <image name="Rectangle Copy 5" width="324" height="116"/>
-        <image name="Shuffle" width="20" height="14"/>
         <image name="TopDarkBackground" width="375" height="54"/>
         <image name="Vegan-2" width="126" height="23"/>
         <image name="Vent" width="351" height="131"/>

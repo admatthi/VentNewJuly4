@@ -58,9 +58,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
               
             tabBarBuyer.selectedIndex = 1
             
-            ref?.child("Favorites").child(uid).childByAutoId().updateChildValues(["Name" : "Morning Motivation", "Description" : "Achieve Your Goals", "Image" : "https://firebasestorage.googleapis.com/v0/b/cleanse-recipes.appspot.com/o/Morning%403x.png?alt=media&token=bd8c18b6-bcae-4f6a-82a8-be6b940fbcdb", "Headline1" : "What are you grateful for this morning?", "Headline2" : "What are you working towards? What is your goal?", "Headline3" : "What are three things you need to do today to get closer your goal?", "Headline4" : "What will make today great?",  "Popularity" : 0 ])
+            ref?.child("Favorites").child(uid).childByAutoId().updateChildValues(["Name" : "Morning Motivation", "Description" : "I Need To Get Motivated", "Image" : "https://firebasestorage.googleapis.com/v0/b/cleanse-recipes.appspot.com/o/Morning%403x.png?alt=media&token=bd8c18b6-bcae-4f6a-82a8-be6b940fbcdb", "Headline1" : "What are you grateful for this morning?", "Headline2" : "What are you working towards? What is your goal?", "Headline3" : "What are three things you need to do today to get closer your goal?", "Headline4" : "What will make today great?",  "Popularity" : 0 ])
             
-            ref?.child("Favorites").child(uid).childByAutoId().updateChildValues(["Name" : "Lesson Learned", "Description" : "Reflect on Successes & Mistakes", "Image" : "https://firebasestorage.googleapis.com/v0/b/cleanse-recipes.appspot.com/o/Green%403x.png?alt=media&token=67ecfae9-a494-4fbe-bb2f-793d3ebe4ddb", "Headline1" : "What happened?", "Headline2" : "What did you expect to happen?", "Headline3" : "What will you do differently next time?", "Popularity" : 1 ])
+            ref?.child("Favorites").child(uid).childByAutoId().updateChildValues(["Name" : "Lesson Learned", "Description" : "I Made A Mistake", "Image" : "https://firebasestorage.googleapis.com/v0/b/cleanse-recipes.appspot.com/o/Green%403x.png?alt=media&token=67ecfae9-a494-4fbe-bb2f-793d3ebe4ddb", "Headline1" : "What happened?", "Headline2" : "What did you expect to happen?", "Headline3" : "What will you do differently next time?", "Popularity" : 1 ])
 
               
               UserDefaults.standard.set(true, forKey: "launchedBefore")
