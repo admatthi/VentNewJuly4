@@ -534,6 +534,19 @@ class DepressionViewController: UIViewController, UICollectionViewDelegate, UICo
                 
                 let value = snapshot.value as? NSDictionary
                 
+                if let time = value?["Time"] as? Int {
+                          
+                          mytime = time
+                          
+                      }
+                      
+                      
+                      if let words = value?["Words"] as? Int {
+                          
+                          mywords = words
+                          
+                      }
+                
                 if let purchased = value?["Purchased"] as? String {
                     
                     if purchased == "True" {

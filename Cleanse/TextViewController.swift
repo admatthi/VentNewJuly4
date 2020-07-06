@@ -7,12 +7,18 @@
 //
 
 import UIKit
+import FBSDKCoreKit
+import Firebase
 import CircleProgressView
 
 var selectedheadline = String()
 var dateformat = String()
 var randomString = String()
 
+var mywords = Int()
+var mytime = Int()
+
+var timespent = Int()
 
 class TextViewController: UIViewController, UITextViewDelegate {
     
@@ -51,6 +57,8 @@ class TextViewController: UIViewController, UITextViewDelegate {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        timer.invalidate()
         
         self.textView.endEditing(true)
         
@@ -121,7 +129,7 @@ class TextViewController: UIViewController, UITextViewDelegate {
 
         countertimer -= 1
 
-        let progress = (Float(countertimer)/Float(600))
+        let progress = (Float(countertimer)/Float(300))
 
 
         self.circleProgress.setProgress(Double(progress), animated: true)
@@ -132,9 +140,6 @@ class TextViewController: UIViewController, UITextViewDelegate {
 
     }
     
- 
-    
-  
     
     
     override func viewDidLoad() {
@@ -217,7 +222,6 @@ class TextViewController: UIViewController, UITextViewDelegate {
         
         
         
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateprogress), userInfo: nil, repeats: true)
         
         
         //        if newText.count < 240 {
@@ -287,9 +291,33 @@ class TextViewController: UIViewController, UITextViewDelegate {
     
     override func viewDidDisappear(_ animated: Bool) {
         
+        
+        if textView.text != "" {
+        logTime(referrer: (300-countertimer))
+    
+        let textcharacters = textView.text
+        
+        let count = (Double(textcharacters!.count) * 0.2)
+        
+        print(count)
+            print(countertimer)
+        
+        logWords(referrer: Int(count))
+            
+            var aggregatetime = mytime + (300-countertimer)
+            var aggregateword = mywords + Int(count)
+        
+            
+            
+        ref?.child("Users").child(uid).updateChildValues(["Words" : aggregateword, "Time" : aggregatetime])
+            
+        }
+        
         textone = ""
         texttwo = ""
         textthree = ""
+            
+            
         
         timer.invalidate()
     }
@@ -356,15 +384,21 @@ class TextViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var characterslabel: UILabel!
     @IBOutlet weak var progressView: UIProgressView!
     func textViewDidBeginEditing(_ textView: UITextView) {
+        
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateprogress), userInfo: nil, repeats: true)
+
         if textView.textColor == UIColor.lightGray {
             textView.text = nil
-            textView.textColor = UIColor.black
+            textView.textColor = UIColor.white
         }
     }
     
     var newText = String()
     
     func textViewDidChange(_ textView: UITextView) {
+        
+        
+        
         
         //        newText = textView.text
         //
@@ -511,6 +545,15 @@ class TextViewController: UIViewController, UITextViewDelegate {
             textView.textColor = UIColor.lightGray
         }
     }
+    
+    func logWords(referrer : Int) {
+        AppEvents.logEvent(AppEvents.Name(rawValue: "words typed"), parameters: ["referrer" : referrer])
+    }
+    
+    func logTime(referrer : Int) {
+          AppEvents.logEvent(AppEvents.Name(rawValue: "time spent"), parameters: ["referrer" : referrer])
+      }
+    
     
     
     /*

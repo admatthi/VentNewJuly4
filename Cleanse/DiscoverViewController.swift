@@ -101,10 +101,23 @@ class DiscoverViewController: UIViewController, UICollectionViewDelegate, UIColl
         }
     
     func queryforinfo() {
-                
+        
         ref?.child("Users").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
             
             let value = snapshot.value as? NSDictionary
+            
+            if let time = value?["Time"] as? Int {
+                
+                mytime = time
+                
+            }
+            
+            
+            if let words = value?["Words"] as? Int {
+                
+                mywords = words
+                
+            }
             
             if let purchased = value?["Purchased"] as? String {
                 
@@ -113,7 +126,7 @@ class DiscoverViewController: UIViewController, UICollectionViewDelegate, UIColl
                     didpurchase = true
                     
                 } else {
-                                 
+                    
                     didpurchase = false
                     self.performSegue(withIdentifier: "HomeToSale", sender: self)
                     
@@ -122,9 +135,9 @@ class DiscoverViewController: UIViewController, UICollectionViewDelegate, UIColl
             } else {
                 
                 didpurchase = false
-              self.performSegue(withIdentifier: "HomeToSale", sender: self)
+                self.performSegue(withIdentifier: "HomeToSale", sender: self)
             }
-     
+            
         })
         
     }

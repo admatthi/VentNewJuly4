@@ -599,13 +599,13 @@
                             <constraint firstItem="96w-qi-afN" firstAttribute="top" secondItem="CKp-dq-QKU" secondAttribute="bottom" constant="14" id="kNK-NM-3ml"/>
                             <constraint firstItem="3XL-kc-clf" firstAttribute="top" secondItem="96w-qi-afN" secondAttribute="bottom" constant="187" id="lJY-dz-g9f"/>
                             <constraint firstItem="3XL-kc-clf" firstAttribute="centerX" secondItem="5f4-QP-Kb0" secondAttribute="centerX" id="lhm-vq-F28"/>
+                            <constraint firstItem="HRF-6f-9c1" firstAttribute="centerX" secondItem="YFU-6m-RaK" secondAttribute="centerX" constant="1.5" id="pW5-Fa-CLj"/>
                             <constraint firstItem="4th-w9-EeP" firstAttribute="centerY" secondItem="CKp-dq-QKU" secondAttribute="centerY" constant="-72" id="qdV-oz-0tl"/>
                             <constraint firstItem="85i-V8-bL1" firstAttribute="leading" secondItem="5f4-QP-Kb0" secondAttribute="leading" id="s9O-kC-CqZ"/>
-                            <constraint firstItem="hQx-xS-Mt2" firstAttribute="trailing" secondItem="HRF-6f-9c1" secondAttribute="trailing" constant="23" id="u7s-Nj-BmH"/>
+                            <constraint firstItem="HRF-6f-9c1" firstAttribute="centerY" secondItem="YFU-6m-RaK" secondAttribute="centerY" id="uYA-ir-Fh2"/>
                             <constraint firstItem="96w-qi-afN" firstAttribute="centerX" secondItem="5f4-QP-Kb0" secondAttribute="centerX" id="wud-eu-vzr"/>
                             <constraint firstItem="CKp-dq-QKU" firstAttribute="leading" secondItem="hQx-xS-Mt2" secondAttribute="leading" constant="20" id="wwS-wl-hgP"/>
                             <constraint firstItem="hQx-xS-Mt2" firstAttribute="trailing" secondItem="YFU-6m-RaK" secondAttribute="trailing" constant="12" id="zHD-uK-JYs"/>
-                            <constraint firstItem="HRF-6f-9c1" firstAttribute="top" secondItem="hQx-xS-Mt2" secondAttribute="top" constant="19" id="zbw-RU-deA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hQx-xS-Mt2"/>
                     </view>
