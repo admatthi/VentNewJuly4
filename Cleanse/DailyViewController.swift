@@ -383,7 +383,7 @@ class DailyViewController: UIViewController, UITableViewDelegate, UITableViewDat
                     cell.titleImage.layer.borderWidth = 3.5
                         
             
-            if indexPath.row < 2 {
+            if indexPath.row < 7 {
               
         
                 cell.datelabel.text = book?.description

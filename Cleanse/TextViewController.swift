@@ -20,7 +20,7 @@ var mytime = Int()
 
 var timespent = Int()
 
-class TextViewController: UIViewController, UITextViewDelegate {
+class TextViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var circleProgress: CircleProgressView!
     
@@ -60,9 +60,11 @@ class TextViewController: UIViewController, UITextViewDelegate {
         
         timer.invalidate()
         
-        self.textView.endEditing(true)
+        self.t1.endEditing(true)
         
-        
+        self.t2.endEditing(true)
+        self.t3.endEditing(true)
+
         
     }
     
@@ -237,7 +239,10 @@ class TextViewController: UIViewController, UITextViewDelegate {
     }
     
     
-    
+    @IBOutlet weak var t2: UITextField!
+    @IBOutlet weak var t3: UITextField!
+
+    @IBOutlet weak var t1: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -253,18 +258,37 @@ class TextViewController: UIViewController, UITextViewDelegate {
 //        progressView.layer.cornerRadius = 5.0
 //        progressView.clipsToBounds = true
 //
-        textView.layer.cornerRadius = 5.0
-        textView.clipsToBounds = true
+        t1.layer.cornerRadius = 5.0
+        t1.clipsToBounds = true
+        t1.delegate = self
+         t1.text = ""
+         t1.textColor = UIColor.white
+        
+        t2.layer.cornerRadius = 5.0
+        t2.clipsToBounds = true
+        t2.delegate = self
+         t2.text = ""
+         t2.textColor = UIColor.white
+        
+        t3.layer.cornerRadius = 5.0
+        t3.clipsToBounds = true
+        t3.delegate = self
+         t3.text = ""
+         t3.textColor = UIColor.white
+        
+        self.addLineToView(view: t1, position:.LINE_POSITION_BOTTOM, color: UIColor.white, width: 0.5)
+        
+        self.addLineToView(view: t2, position:.LINE_POSITION_BOTTOM, color: UIColor.white, width: 0.5)
+        self.addLineToView(view: t3, position:.LINE_POSITION_BOTTOM, color: UIColor.white, width: 0.5)
+
+
 //
 //        var transform : CGAffineTransform = CGAffineTransform(scaleX: 1.0, y: 3.0)
 //        progressView.transform = transform
         
-        textView.delegate = self
+ 
         
-        textView.text = ""
-        textView.textColor = UIColor.white
-        
-        textView.becomeFirstResponder()
+        t1.becomeFirstResponder()
       
         
         var imageURLString = selectedbackground
@@ -306,16 +330,16 @@ class TextViewController: UIViewController, UITextViewDelegate {
         
         queryforinfo()
         
-        if textone != "" {
-            
-            textView.text = textone
-        } else {
-            
-            textView.text = ""
-            
-        }
+//        if textone != "" {
+//
+//            textView.text = textone
+//        } else {
+//
+//            textView.text = ""
+//
+//        }
         
-        newText = textView.text
+//        newText = textView.text
         
         
         
@@ -413,7 +437,7 @@ class TextViewController: UIViewController, UITextViewDelegate {
     override func viewDidDisappear(_ animated: Bool) {
         
         
-        if textView.text != "" {
+        if t1.text != "" {
         logTime(referrer: (300-countertimer))
     
         let textcharacters = textView.text
@@ -506,12 +530,12 @@ class TextViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var progressView: UIProgressView!
     func textViewDidBeginEditing(_ textView: UITextView) {
         
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateprogress), userInfo: nil, repeats: true)
-
-        if textView.textColor == UIColor.lightGray {
-            textView.text = nil
-            textView.textColor = UIColor.white
-        }
+//        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateprogress), userInfo: nil, repeats: true)
+//
+//        if textView.textColor == UIColor.lightGray {
+//            textView.text = nil
+//            textView.textColor = UIColor.white
+//        }
     }
     
     var newText = String()
@@ -558,7 +582,7 @@ class TextViewController: UIViewController, UITextViewDelegate {
         
         
         
-        if textView.text != "" {
+        if t1.text != "" {
             
             if headlines.count == 1 {
                 
@@ -686,6 +710,35 @@ class TextViewController: UIViewController, UITextViewDelegate {
      // Pass the selected object to the new view controller.
      }
      */
+    
+    
+      enum LINE_POSITION {
+          case LINE_POSITION_TOP
+          case LINE_POSITION_BOTTOM
+      }
+      
+      func addLineToView(view : UIView, position : LINE_POSITION, color: UIColor, width: Double) {
+          let lineView = UIView()
+          lineView.backgroundColor = color
+          lineView.translatesAutoresizingMaskIntoConstraints = false // This is important!
+          view.addSubview(lineView)
+          
+          let metrics = ["width" : NSNumber(value: width)]
+          let views = ["lineView" : lineView]
+          view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[lineView]|", options:NSLayoutConstraint.FormatOptions(rawValue: 0), metrics:metrics, views:views))
+          
+          switch position {
+          case .LINE_POSITION_TOP:
+              view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[lineView(width)]", options:NSLayoutConstraint.FormatOptions(rawValue: 0), metrics:metrics, views:views))
+              break
+          case .LINE_POSITION_BOTTOM:
+              view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:[lineView(width)]|", options:NSLayoutConstraint.FormatOptions(rawValue: 0), metrics:metrics, views:views))
+              break
+          default:
+              break
+          }
+      }
+
     
 }
 
