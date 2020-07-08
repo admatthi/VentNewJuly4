@@ -325,6 +325,30 @@ class DailyViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 return books.count
 
                 }
+    
+   func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+
+        
+        if (editingStyle == UITableViewCell.EditingStyle.delete) {
+            
+            let book = self.book(atIndex: indexPath.row)
+
+            books.remove(at: indexPath.row)
+            
+            ref?.child("Favorites").child(uid).child(book!.bookID).removeValue()
+            
+            titleTableView.reloadData()
+            // handle delete (by removing the data from your array and updating the tableview)
+        }
+    }
 
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             
@@ -386,7 +410,7 @@ class DailyViewController: UIViewController, UITableViewDelegate, UITableViewDat
             if indexPath.row < 7 {
               
         
-                cell.datelabel.text = book?.description
+                    cell.datelabel.text = book?.bookedText
                      cell.selectionStyle = .none
                        
                      let name = book?.name

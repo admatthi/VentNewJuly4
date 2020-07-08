@@ -238,16 +238,31 @@ class TextViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
 
     }
     
+    @objc func textFieldDidChange(_ textField: UITextField) {
+
+        if t1.text != "" {
+                  
+                  tapdone.alpha = 1
+                  
+              } else {
+                  
+                  tapdone.alpha = 0
+
+              }
+    }
+    
     
     @IBOutlet weak var t2: UITextField!
     @IBOutlet weak var t3: UITextField!
 
+    @IBOutlet weak var tapdone: UIButton!
     @IBOutlet weak var t1: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         ref = Database.database().reference()
 
+        tapdone.alpha = 0
         counter = 0
         countertimer = 300
         timerlabel.text = "5:00"
@@ -258,6 +273,9 @@ class TextViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
 //        progressView.layer.cornerRadius = 5.0
 //        progressView.clipsToBounds = true
 //
+        
+        t1.addTarget(self, action: #selector(TextViewController.textFieldDidChange(_:)), for: .editingChanged)
+
         t1.layer.cornerRadius = 5.0
         t1.clipsToBounds = true
         t1.delegate = self
@@ -330,14 +348,34 @@ class TextViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
         
         queryforinfo()
         
-//        if textone != "" {
-//
-//            textView.text = textone
-//        } else {
-//
-//            textView.text = ""
-//
-//        }
+        if textone != "" {
+
+            t1.text = textone
+            
+        } else {
+
+            t1.text = ""
+        }
+        
+        
+        if texttwo != "" {
+
+            t2.text = texttwo
+        } else {
+
+            t2.text = ""
+
+        }
+        
+        if textthree != "" {
+
+               t3.text = textthree
+            
+           } else {
+
+               t3.text = ""
+
+           }
         
 //        newText = textView.text
         
@@ -440,21 +478,23 @@ class TextViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
         if t1.text != "" {
         logTime(referrer: (300-countertimer))
     
-        let textcharacters = textView.text
+//        let textcharacters = t1.text
+//
+//            let textcharacters = t1.text
+//
+//
+//        let count = (Double(textcharacters!.count) * 0.2)
         
-        let count = (Double(textcharacters!.count) * 0.2)
-        
-        print(count)
             print(countertimer)
         
-        logWords(referrer: Int(count))
+//        logWords(referrer: Int(count))
             
             var aggregatetime = mytime + (300-countertimer)
-            var aggregateword = mywords + Int(count)
+//            var aggregateword = mywords + Int(count)
         
             
             
-        ref?.child("Users").child(uid).updateChildValues(["Words" : aggregateword, "Time" : aggregatetime])
+//        ref?.child("Users").child(uid).updateChildValues(["Words" : aggregateword, "Time" : aggregatetime])
             
         }
         
@@ -540,6 +580,7 @@ class TextViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
     
     var newText = String()
     
+
     func textViewDidChange(_ textView: UITextView) {
         
         
@@ -580,106 +621,61 @@ class TextViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
     @IBOutlet weak var tapsave: UIButton!
     @IBAction func tapContinue(_ sender: Any) {
         
+        if t1.text == "" && t2.text == "" && t3.text == ""   {
+
         
-        
-        if t1.text != "" {
-            
-            if headlines.count == 1 {
-                
-                ref?.child("Entries").child(uid).child(selectedbookid).removeValue()
-                
-                ref?.child("Entries").child(uid).childByAutoId().updateChildValues(["Author" : selectedauthorname, "Name" : selectedtitle, "Headline1" : headlines[0], "Author Image" : selectedauthorimage, "Image" : selectedbackground, "Text0" : textView.text!, "Date" : dateformat])
-                
-                ref?.child("Favorites").child(uid).child(selectedbookid).updateChildValues([ "Name" : selectedtitle, "Headline1" : headlines[0], "Image" : selectedbackground])
-                
-                
-            }
-            
-            if headlines.count == 2 {
-                
-                ref?.child("Entries").child(uid).child(selectedbookid).removeValue()
-                
-                ref?.child("Entries").child(uid).childByAutoId().updateChildValues(["Author" : selectedauthorname, "Name" : selectedtitle, "Headline1" : headlines[0], "Headline2" : headlines[1], "Author Image" : selectedauthorimage, "Image" : selectedbackground, "Text0" : textView.text!, "Date" : dateformat])
-                
-                ref?.child("Favorites").child(uid).child(selectedbookid).updateChildValues([ "Name" : selectedtitle, "Headline1" : headlines[0], "Headline2" : headlines[1], "Image" : selectedbackground])
-                
-                
-            }
-            
-            
-            if headlines.count == 3 {
-                
-                
-                
-                ref?.child("Entries").child(uid).child(randomString).updateChildValues(["Author" : selectedauthorname, "Name" : selectedtitle, "Headline1" : headlines[0], "Headline2" : headlines[1], "Headline3" : headlines[2], "Author Image" : selectedauthorimage, "Image" : selectedbackground, "Text0" : textView.text!, "Date" : dateformat])
-                
-                ref?.child("Favorites").child(uid).child(selectedbookid).updateChildValues([ "Name" : selectedtitle, "Headline1" : headlines[0], "Headline2" : headlines[1], "Headline3" : headlines[2], "Image" : selectedbackground])
-                
-                
-            }
-            
-            if headlines.count == 4 {
-                
-                
-                
-                ref?.child("Entries").child(uid).child(randomString).updateChildValues(["Author" : selectedauthorname, "Name" : selectedtitle, "Headline1" : headlines[0], "Headline2" : headlines[1], "Headline3" : headlines[2],"Headline4" : headlines[3], "Author Image" : selectedauthorimage, "Image" : selectedbackground, "Text0" : textView.text!, "Date" : dateformat])
-                
-                ref?.child("Favorites").child(uid).child(selectedbookid).updateChildValues([ "Name" : selectedtitle, "Headline1" : headlines[0], "Headline2" : headlines[1], "Headline3" : headlines[2], "Headline4" : headlines[3], "Image" : selectedbackground])
-                
-                
-            }
-            
-            if headlines.count == 5 {
-                
-                
-                
-                ref?.child("Entries").child(uid).child(randomString).updateChildValues(["Author" : selectedauthorname, "Name" : selectedtitle, "Headline1" : headlines[0], "Headline2" : headlines[1], "Headline3" : headlines[2],"Headline4" : headlines[3],"Headline5" : headlines[4], "Author Image" : selectedauthorimage, "Image" : selectedbackground, "Text0" : textView.text!, "Date" : dateformat])
-                
-                ref?.child("Favorites").child(uid).child(selectedbookid).updateChildValues([ "Name" : selectedtitle, "Headline1" : headlines[0], "Headline2" : headlines[1], "Headline3" : headlines[2], "Headline4" : headlines[3], "Headline5" : headlines[4], "Image" : selectedbackground])
-                
-                
-            }
-            
-            if headlines.count == 6 {
-                
-                
-                
-                ref?.child("Entries").child(uid).child(randomString).updateChildValues(["Author" : selectedauthorname, "Name" : selectedtitle, "Headline1" : headlines[0], "Headline2" : headlines[1], "Headline3" : headlines[2],"Headline4" : headlines[3],"Headline5" : headlines[4],"Headline6" : headlines[5], "Author Image" : selectedauthorimage, "Image" : selectedbackground, "Text0" : textView.text!, "Date" : dateformat])
-                
-                ref?.child("Favorites").child(uid).child(selectedbookid).updateChildValues([ "Name" : selectedtitle, "Headline1" : headlines[0], "Headline2" : headlines[1], "Headline3" : headlines[2], "Headline4" : headlines[3], "Headline5" : headlines[4], "Headline6" : headlines[5], "Image" : selectedbackground])
-                
-                
-            }
-            
-            if headlines.count == 7 {
-                
-                
-                
-                ref?.child("Entries").child(uid).child(randomString).updateChildValues(["Author" : selectedauthorname, "Name" : selectedtitle, "Headline1" : headlines[0], "Headline2" : headlines[1], "Headline3" : headlines[2],"Headline4" : headlines[3],"Headline5" : headlines[4],"Headline6" : headlines[5],"Headline7" : headlines[6], "Author Image" : selectedauthorimage, "Image" : selectedbackground, "Text0" : textView.text!, "Date" : dateformat])
-                
-                ref?.child("Favorites").child(uid).child(selectedbookid).updateChildValues([ "Name" : selectedtitle, "Headline1" : headlines[0], "Headline2" : headlines[1], "Headline3" : headlines[2], "Headline4" : headlines[3], "Headline5" : headlines[4], "Headline6" : headlines[5], "Headline7" : headlines[6], "Image" : selectedbackground])
-                
-                
-            }
-            
-            if headlines.count == 8 {
-                
-                
-                
-                ref?.child("Entries").child(uid).child(randomString).updateChildValues(["Author" : selectedauthorname, "Name" : selectedtitle, "Headline1" : headlines[0], "Headline2" : headlines[1], "Headline3" : headlines[2],"Headline4" : headlines[3],"Headline5" : headlines[4],"Headline6" : headlines[5],"Headline7" : headlines[6],"Headline8" : headlines[7], "Author Image" : selectedauthorimage, "Image" : selectedbackground, "Text0" : textView.text!, "Date" : dateformat])
-                
-                ref?.child("Favorites").child(uid).child(selectedbookid).updateChildValues([ "Name" : selectedtitle, "Headline1" : headlines[0], "Headline2" : headlines[1], "Headline3" : headlines[2], "Headline4" : headlines[3], "Headline5" : headlines[4], "Headline6" : headlines[5], "Headline7" : headlines[6], "Headline8" : headlines[7], "Image" : selectedbackground])
-                
-                
-            }
-            
-            nextcount()
-            
-        } else {
-            
-            nextcount()
+        self.dismiss(animated: true, completion: nil)
             
         }
+
+        
+        
+        if t1.text != "" && t2.text == ""  {
+            
+            ref?.child("Favorites").child(uid).child(selectedbookid).updateChildValues([ "Name" : selectedtitle, "Headline1" : headlines[0], "Image" : selectedbackground, "Submitted" : t1.text!])
+
+                            
+                ref?.child("Entries").child(uid).child(selectedbookid).removeValue()
+                
+                ref?.child("Entries").child(uid).childByAutoId().updateChildValues(["Author" : selectedauthorname, "Name" : selectedtitle, "Headline1" : headlines[0], "Author Image" : selectedauthorimage, "Image" : selectedbackground, "Text0" : t1.text!, "Date" : dateformat])
+            
+            self.dismiss(animated: true, completion: nil)
+
+                
+                
+        }
+                
+            
+        if t2.text != "" && t1.text != "" && t3.text == ""   {
+                
+                ref?.child("Favorites").child(uid).child(selectedbookid).updateChildValues([ "Name" : selectedtitle, "Headline1" : headlines[0], "Image" : selectedbackground, "Submitted" : t1.text!])
+
+                
+                ref?.child("Entries").child(uid).childByAutoId().updateChildValues(["Author" : selectedauthorname, "Name" : selectedtitle, "Headline1" : headlines[0], "Author Image" : selectedauthorimage, "Image" : selectedbackground, "Text1" : t2.text!, "Text0" : t1.text!, "Date" : dateformat])
+                
+                self.dismiss(animated: true, completion: nil)
+
+
+            }
+            
+
+            
+            if t2.text != "" && t1.text != "" && t3.text != ""  {
+                
+                ref?.child("Favorites").child(uid).child(selectedbookid).updateChildValues([ "Name" : selectedtitle, "Headline1" : headlines[0], "Image" : selectedbackground, "Submitted" : t1.text!])
+
+                      
+                ref?.child("Entries").child(uid).childByAutoId().updateChildValues(["Author" : selectedauthorname, "Name" : selectedtitle, "Headline1" : headlines[0], "Author Image" : selectedauthorimage, "Image" : selectedbackground, "Text1" : t2.text!, "Text0" : t1.text!, "Text2" : t3.text!, "Date" : dateformat])
+                
+                self.dismiss(animated: true, completion: nil)
+
+
+                  }
+            
+            
+                        
+    
+            
         
     }
     

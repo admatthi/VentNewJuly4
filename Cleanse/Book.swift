@@ -49,6 +49,7 @@ struct Book {
     let date: String?
     let intdate: Int?
     let title: String?
+    let bookedText: String?
 
 
     let summary: Summary
@@ -94,7 +95,7 @@ struct Book {
         self.date = json["Date"] as? String
         self.intdate = json["IntDate"] as? Int
         self.title = json["Title"] as? String
-
+        self.bookedText = json["Submitted"] as? String
 
 
         self.summary = Summary(withJSON: json["Summary"] as? [String: Any])
