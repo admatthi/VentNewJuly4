@@ -150,13 +150,14 @@ class EntriesViewController: UIViewController, UITableViewDelegate, UITableViewD
         let name = book?.name
 
             
-        cell.datelabel.text = book?.name
-            
+        cell.titlelabel.text = book?.name
+
         
         if let date3 = book?.date {
             
             
-            cell.titlelabel.text = date3
+            cell.datelabel.text = date3
+
         }
         
         //                cell.tapup.tag = indexPath.row

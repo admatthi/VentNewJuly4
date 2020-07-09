@@ -1291,7 +1291,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U7y-8p-VM1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3400.0000000000005" y="-822.32142857142856"/>
+            <point key="canvasLocation" x="-3436" y="-822"/>
         </scene>
         <!--Sessions-->
         <scene sceneID="rPW-5b-SLx">
@@ -1322,7 +1322,7 @@
                                                         <constraint firstAttribute="height" constant="89" id="gOB-jc-cu5"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="cornerRadius" value="10"/>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="cornerRadius" value="25"/>
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
@@ -1344,14 +1344,17 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Morning Motivation" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FjU-8d-OzY">
-                                                    <rect key="frame" x="100" y="24" width="121" height="15.5"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
-                                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <rect key="frame" x="100" y="24" width="148" height="21.5"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check in with yourself this morning" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ueg-mk-fiP">
-                                                    <rect key="frame" x="100" y="46" width="267" height="20"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                    <rect key="frame" x="100" y="52" width="294" height="19"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="19" id="ocG-8G-rYZ"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1363,6 +1366,7 @@
                                                 <constraint firstItem="SGV-3B-wSH" firstAttribute="top" secondItem="xos-2K-C8Q" secondAttribute="top" constant="3" id="JAe-zC-pw8"/>
                                                 <constraint firstAttribute="trailing" secondItem="SGV-3B-wSH" secondAttribute="trailing" constant="8" id="OuC-2Y-HTk"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="4nw-J9-Rni" secondAttribute="bottom" constant="6" id="Zav-9s-rbk"/>
+                                                <constraint firstItem="ueg-mk-fiP" firstAttribute="trailing" secondItem="xos-2K-C8Q" secondAttribute="trailingMargin" id="bST-g1-Xf2"/>
                                                 <constraint firstAttribute="bottom" secondItem="SGV-3B-wSH" secondAttribute="bottom" constant="4" id="cwd-FG-BL5"/>
                                                 <constraint firstItem="4nw-J9-Rni" firstAttribute="leading" secondItem="xos-2K-C8Q" secondAttribute="leadingMargin" id="lP7-Pw-k2F"/>
                                                 <constraint firstItem="FjU-8d-OzY" firstAttribute="top" secondItem="xos-2K-C8Q" secondAttribute="topMargin" constant="13" id="nKL-Nq-0Ds"/>
@@ -1561,7 +1565,7 @@
                                     <constraint firstAttribute="width" constant="198" id="XRU-b8-Ers"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unlimted access to our productivity system for inevitable goal success" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VNG-xH-4xN">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unlimted access to our guided journals for inevitable life improvement" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VNG-xH-4xN">
                                 <rect key="frame" x="49" y="250" width="356" height="52"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="swj-dg-UOJ"/>
@@ -1706,7 +1710,7 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="24" id="qar-q8-vJC"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Leverage multi-level planning so you do more in a lot less time" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="srt-Zx-OBP">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Boost your mental health with guides on panic attacks and anxiety" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="srt-Zx-OBP">
                                 <rect key="frame" x="49" y="429" width="356" height="52"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="wCm-XR-Zel"/>
@@ -1733,7 +1737,7 @@
                                     <constraint firstAttribute="width" constant="24" id="znS-hZ-CLc"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Work smarter with tools that sharpen focus &amp; eliminate decision fatigue" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5SP-Qa-cED">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Learn from your mistakes with our world-class relationship guides" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5SP-Qa-cED">
                                 <rect key="frame" x="49" y="480.5" width="356" height="52"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="hbL-q7-z0r"/>
@@ -1867,7 +1871,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="GeH-sA-ogr"/>
-        <segue reference="oFN-EA-7UC"/>
+        <segue reference="yUv-dn-toi"/>
         <segue reference="24a-eo-MIq"/>
     </inferredMetricsTieBreakers>
     <resources>
