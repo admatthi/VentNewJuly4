@@ -50,7 +50,7 @@ struct Book {
     let intdate: Int?
     let title: String?
     let bookedText: String?
-
+    let lastupdated: String?
 
     let summary: Summary
 
@@ -96,6 +96,7 @@ struct Book {
         self.intdate = json["IntDate"] as? Int
         self.title = json["Title"] as? String
         self.bookedText = json["Submitted"] as? String
+        self.lastupdated = json["LastUpdated"] as? String
 
 
         self.summary = Summary(withJSON: json["Summary"] as? [String: Any])

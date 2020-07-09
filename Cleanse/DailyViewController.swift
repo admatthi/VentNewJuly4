@@ -15,6 +15,7 @@ import AVFoundation
 
 var mygreen = UIColor(red: 0.13, green: 0.84, blue: 0.39, alpha: 1.00)
 
+var todaysdate = String()
 
 
 class DailyViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -60,6 +61,9 @@ class DailyViewController: UIViewController, UITableViewDelegate, UITableViewDat
                    super.viewDidLoad()
 
                    ref = Database.database().reference()
+                
+                       
+                
                 
                 queryforinfo()
                 
@@ -221,6 +225,8 @@ class DailyViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 
                 headlines = headlines.filter{$0 != "x"}
                 
+                titleTableView.rowHeight = UITableView.automaticDimension
+                
                 
                 let alert = UIAlertController(title: "What would you like to do?", message: "", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Read", style: .default, handler: { action in
@@ -263,6 +269,14 @@ class DailyViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 
                 
         }
+    
+    func tableView(tableView: UITableView,
+        heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
+    {
+
+        return UITableView.automaticDimension
+    }
+
 
         @IBAction func tapDiscount(_ sender: Any) {
             
@@ -350,90 +364,107 @@ class DailyViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
 
-        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            
-
-            
-            let book = self.book(atIndexPath: indexPath)
-            
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Home", for: indexPath) as! HomeTableViewCell
-              //            if book?.bookID == "Title" {
-              //
-              //                return cell
-              //
-              //            } else {
-              
-              
-              
-
-            titleTableView.alpha = 1
-       
-              let date = Date()
-              let dateFormatter = DateFormatter()
-              dateFormatter.dateFormat = "MMM d"
-              let result = dateFormatter.string(from: date)
-              
-              dateformat = result
-     
-
-              
-              
-              
-              
-         
-                   if let imageURLString = book?.imageURL, let imageUrl = URL(string: imageURLString) {
-                  
-                  cell.titleImage.kf.setImage(with: imageUrl)
-                    
-            }
-              
-              
-              var randomint = Int.random(in: 100..<1000)
-              
-              
-    //          cell.titleImage.layer.cornerRadius = cell.titleImage.frame.size.width/2
-    //          cell.titleImage.clipsToBounds = true
-    //          cell.titleImage.alpha = 1
-              
-                  
-              
-              cell.layer.cornerRadius = 15.0
-              cell.clipsToBounds = true
-              
-              cell.titlelabel.alpha = 1
-              cell.titlelabel.alpha = 1
-            
-            cell.titleImage.layer.borderColor = UIColor.white.cgColor
-                    cell.titleImage.layer.borderWidth = 3.5
-                        
-            
-            if indexPath.row < 7 {
-              
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-                    cell.datelabel.text = book?.bookedText
-                     cell.selectionStyle = .none
-                       
-                     let name = book?.name
-                     
-                     cell.titlelabel.text = book?.name
-                
-            } else {
-                
-                cell.titlelabel.text = "15 MIN"
+        
+        
+        let book = self.book(atIndexPath: indexPath)
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Home", for: indexPath) as! HomeTableViewCell
+        //            if book?.bookID == "Title" {
+        //
+        //                return cell
+        //
+        //            } else {
+        
+        
+        
+        
+        titleTableView.alpha = 1
+        
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM d"
+        let result = dateFormatter.string(from: date)
+        
+        dateformat = result
+        
+        
+        
+        
+        
+        
+        
+        if let imageURLString = book?.imageURL, let imageUrl = URL(string: imageURLString) {
+            
+            cell.titleImage.kf.setImage(with: imageUrl)
+            
+        }
+        
+        
+        var randomint = Int.random(in: 100..<1000)
+        
+        
+        //          cell.titleImage.layer.cornerRadius = cell.titleImage.frame.size.width/2
+        //          cell.titleImage.clipsToBounds = true
+        //          cell.titleImage.alpha = 1
+        
+        
+        
+        cell.layer.cornerRadius = 15.0
+        cell.clipsToBounds = true
+        
+        cell.titlelabel.alpha = 1
+        cell.titlelabel.alpha = 1
+        
+        cell.titleImage.layer.borderColor = UIColor.white.cgColor
+        cell.titleImage.layer.borderWidth = 3.5
+        
+        let name = book?.name
+                 
+        cell.titlelabel.text = book?.name
+        ////            cell.datelabel.text = book?.bookedText
 
-                cell.datelabel.text = book?.name
+                    cell.selectionStyle = .none
 
-            }
+        if book?.lastupdated == todaysdate {
+            
+                        cell.datelabel.text = book?.bookedText
 
+        } else {
+            
+            cell.datelabel.text = "Tap to complete"
 
-              
-              
-              
-              return cell
-              
-              
-              
-          }
+            
+        }
+        
+        
+//        if indexPath.row < 7 {
+//
+//
+////            cell.datelabel.text = book?.bookedText
+//
+//
+//
+//        } else {
+//
+//            cell.titlelabel.text = "15 MIN"
+//
+//            cell.datelabel.text = book?.name
+//
+//        }
+//
+        
+        
+        
+        
+        return cell
+        
+        
+        
+    }
+    
+    
         
         func queryforinfo() {
                     

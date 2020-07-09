@@ -18,6 +18,8 @@ var randomString = String()
 var mywords = Int()
 var mytime = Int()
 
+var selectebookdate = String()
+
 var timespent = Int()
 
 class TextViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate {
@@ -377,6 +379,8 @@ class TextViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
 
            }
         
+   
+        
 //        newText = textView.text
         
         
@@ -632,7 +636,7 @@ class TextViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
         
         if t1.text != "" && t2.text == ""  {
             
-            ref?.child("Favorites").child(uid).child(selectedbookid).updateChildValues([ "Name" : selectedtitle, "Headline1" : headlines[0], "Image" : selectedbackground, "Submitted" : t1.text!])
+            ref?.child("Favorites").child(uid).child(selectedbookid).updateChildValues([ "Name" : selectedtitle, "Headline1" : headlines[0], "Image" : selectedbackground, "Submitted" : t1.text!, "LastUpdated" : todaysdate])
 
                             
                 ref?.child("Entries").child(uid).child(selectedbookid).removeValue()
@@ -648,7 +652,7 @@ class TextViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
             
         if t2.text != "" && t1.text != "" && t3.text == ""   {
                 
-                ref?.child("Favorites").child(uid).child(selectedbookid).updateChildValues([ "Name" : selectedtitle, "Headline1" : headlines[0], "Image" : selectedbackground, "Submitted" : t1.text!])
+                ref?.child("Favorites").child(uid).child(selectedbookid).updateChildValues([ "Name" : selectedtitle, "Headline1" : headlines[0], "Image" : selectedbackground, "Submitted" : t1.text!, "LastUpdated" : todaysdate])
 
                 
                 ref?.child("Entries").child(uid).childByAutoId().updateChildValues(["Author" : selectedauthorname, "Name" : selectedtitle, "Headline1" : headlines[0], "Author Image" : selectedauthorimage, "Image" : selectedbackground, "Text1" : t2.text!, "Text0" : t1.text!, "Date" : dateformat])
@@ -662,7 +666,7 @@ class TextViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
             
             if t2.text != "" && t1.text != "" && t3.text != ""  {
                 
-                ref?.child("Favorites").child(uid).child(selectedbookid).updateChildValues([ "Name" : selectedtitle, "Headline1" : headlines[0], "Image" : selectedbackground, "Submitted" : t1.text!])
+                ref?.child("Favorites").child(uid).child(selectedbookid).updateChildValues([ "Name" : selectedtitle, "Headline1" : headlines[0], "Image" : selectedbackground, "Submitted" : t1.text!, "LastUpdated" : todaysdate])
 
                       
                 ref?.child("Entries").child(uid).childByAutoId().updateChildValues(["Author" : selectedauthorname, "Name" : selectedtitle, "Headline1" : headlines[0], "Author Image" : selectedauthorimage, "Image" : selectedbackground, "Text1" : t2.text!, "Text0" : t1.text!, "Text2" : t3.text!, "Date" : dateformat])

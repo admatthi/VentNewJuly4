@@ -795,7 +795,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.8.7;
+				MARKETING_VERSION = 1.8.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.aatech.vent;
 				PRODUCT_NAME = vent;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -821,7 +821,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.8.7;
+				MARKETING_VERSION = 1.8.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.aatech.vent;
 				PRODUCT_NAME = vent;
 				PROVISIONING_PROFILE_SPECIFIER = "";

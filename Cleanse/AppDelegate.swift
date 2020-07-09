@@ -48,6 +48,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.window?.makeKeyAndVisible()
         
+        let date = Date()
+                                let dateFormatter = DateFormatter()
+                                dateFormatter.dateFormat = "MM-dd-YYYY"
+                                let result = dateFormatter.string(from: date)
+
+                                todaysdate = result
+                   
+        
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
           
           if launchedBefore {
