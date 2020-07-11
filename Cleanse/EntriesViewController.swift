@@ -129,6 +129,7 @@ class EntriesViewController: UIViewController, UITableViewDelegate, UITableViewD
         
     }
     
+    @IBOutlet weak var searchBar: UISearchBar!
     
   
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -146,7 +147,7 @@ class EntriesViewController: UIViewController, UITableViewDelegate, UITableViewD
                 //            if book?.bookID == "Title" {
                 //
                 //                return cell
-        
+        print("hell0")
         let name = book?.name
 
             

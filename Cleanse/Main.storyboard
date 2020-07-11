@@ -1234,7 +1234,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ajb-JX-zQT">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="807"/>
+                                <rect key="frame" x="0.0" y="96" width="414" height="717"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Home" rowHeight="96" id="TwY-ga-jjo" customClass="HomeTableViewCell" customModule="vent" customModuleProvider="target">
@@ -1325,17 +1325,30 @@
                                     <outlet property="delegate" destination="kuX-T0-Dbr" id="1Ww-PG-Ykg"/>
                                 </connections>
                             </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="b2M-hS-CUg">
+                                <rect key="frame" x="0.0" y="52" width="414" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="AmV-9o-MyH"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="kuX-T0-Dbr" id="FgE-Sp-eVS"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="b2M-hS-CUg" firstAttribute="top" secondItem="0sV-is-eHa" secondAttribute="top" constant="8" id="8p7-m0-2Gj"/>
                             <constraint firstItem="jFJ-Dl-Nps" firstAttribute="centerX" secondItem="O97-kB-z71" secondAttribute="centerX" id="Cni-gF-jeo"/>
-                            <constraint firstItem="0sV-is-eHa" firstAttribute="bottom" secondItem="ajb-JX-zQT" secondAttribute="bottom" constant="6" id="N3C-I4-SjB"/>
+                            <constraint firstItem="0sV-is-eHa" firstAttribute="bottom" secondItem="ajb-JX-zQT" secondAttribute="bottom" id="N3C-I4-SjB"/>
                             <constraint firstItem="pmv-uz-cdX" firstAttribute="leading" secondItem="0sV-is-eHa" secondAttribute="leading" id="SEu-0W-Ssg"/>
-                            <constraint firstItem="ajb-JX-zQT" firstAttribute="top" secondItem="0sV-is-eHa" secondAttribute="top" constant="-44" id="SJ9-7q-eNA"/>
+                            <constraint firstItem="ajb-JX-zQT" firstAttribute="top" secondItem="0sV-is-eHa" secondAttribute="top" constant="52" id="SJ9-7q-eNA"/>
                             <constraint firstItem="pmv-uz-cdX" firstAttribute="top" secondItem="O97-kB-z71" secondAttribute="top" id="TIf-Gc-YCa"/>
                             <constraint firstItem="ajb-JX-zQT" firstAttribute="trailing" secondItem="0sV-is-eHa" secondAttribute="trailing" id="g8y-ki-1MY"/>
+                            <constraint firstItem="b2M-hS-CUg" firstAttribute="leading" secondItem="0sV-is-eHa" secondAttribute="leading" id="m7a-1H-vl0"/>
                             <constraint firstItem="pmv-uz-cdX" firstAttribute="trailing" secondItem="0sV-is-eHa" secondAttribute="trailing" id="mhY-sq-6dr"/>
                             <constraint firstItem="ajb-JX-zQT" firstAttribute="leading" secondItem="0sV-is-eHa" secondAttribute="leading" id="o8v-ta-TZX"/>
+                            <constraint firstItem="b2M-hS-CUg" firstAttribute="trailing" secondItem="0sV-is-eHa" secondAttribute="trailing" id="p8i-tg-kNg"/>
                             <constraint firstItem="jFJ-Dl-Nps" firstAttribute="centerY" secondItem="O97-kB-z71" secondAttribute="centerY" id="pLJ-yz-Xn5"/>
                             <constraint firstItem="pmv-uz-cdX" firstAttribute="bottom" secondItem="0sV-is-eHa" secondAttribute="bottom" constant="82.999999999999773" id="uNc-WY-uNP"/>
                         </constraints>
@@ -1345,6 +1358,7 @@
                     <connections>
                         <outlet property="backi" destination="pmv-uz-cdX" id="qtn-3j-oxn"/>
                         <outlet property="nosessions" destination="jFJ-Dl-Nps" id="CCk-ag-uxL"/>
+                        <outlet property="searchBar" destination="b2M-hS-CUg" id="jDF-kG-aDn"/>
                         <outlet property="titleTableView" destination="ajb-JX-zQT" id="Hqp-Un-lOV"/>
                         <segue destination="Js2-iJ-cIc" kind="show" identifier="EntrieToRead" id="yUv-dn-toi"/>
                     </connections>
