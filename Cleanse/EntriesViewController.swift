@@ -152,7 +152,8 @@ class EntriesViewController: UIViewController, UITableViewDelegate, UITableViewD
             
         cell.titlelabel.text = book?.name
 
-        
+        cell.savedtext.text = book?.text1
+
         if let date3 = book?.date {
             
             
@@ -165,6 +166,8 @@ class EntriesViewController: UIViewController, UITableViewDelegate, UITableViewD
         //                cell.tapup.addTarget(self, action: #selector(DiscoverViewController.tapWishlist), for: .touchUpInside)
         
         if let imageURLString = book?.imageURL, let imageUrl = URL(string: imageURLString) {
+            
+            nosessions.alpha = 0
             
             cell.titleImage.kf.setImage(with: imageUrl)
             
@@ -202,6 +205,7 @@ class EntriesViewController: UIViewController, UITableViewDelegate, UITableViewD
         return cell
         
     }
+    @IBOutlet weak var nosessions: UILabel!
     
     
     

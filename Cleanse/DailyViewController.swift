@@ -430,10 +430,12 @@ class DailyViewController: UIViewController, UITableViewDelegate, UITableViewDat
         if book?.lastupdated == todaysdate {
             
                         cell.datelabel.text = book?.bookedText
+            cell.datelabel.textColor = UIColor.black
 
         } else {
             
             cell.datelabel.text = "Tap to complete"
+            cell.datelabel.textColor = UIColor.lightGray
 
             
         }

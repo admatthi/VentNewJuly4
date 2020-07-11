@@ -9,7 +9,8 @@
 import UIKit
 
 class HomeTableViewCell: UITableViewCell {
-        
+    @IBOutlet weak var savedtext: UILabel!
+    
     @IBOutlet weak var titleback: UIImageView!
     @IBOutlet weak var datelabel: UILabel!
     @IBOutlet weak var viewslabel: UILabel!

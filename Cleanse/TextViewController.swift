@@ -60,12 +60,12 @@ class TextViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        timer.invalidate()
+//        timer.invalidate()
         
         self.t1.endEditing(true)
         
-        self.t2.endEditing(true)
-        self.t3.endEditing(true)
+//        self.t2.endEditing(true)
+//        self.t3.endEditing(true)
 
         
     }
@@ -240,25 +240,25 @@ class TextViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
 
     }
     
-    @objc func textFieldDidChange(_ textField: UITextField) {
+    
+    func textViewDidChange(_ textView: UITextView) { //Handle the text changes here
+          if t1.text != "" {
+                     
+                     tapdone.alpha = 1
+                     
+                 } else {
+                     
+                     tapdone.alpha = 0
 
-        if t1.text != "" {
-                  
-                  tapdone.alpha = 1
-                  
-              } else {
-                  
-                  tapdone.alpha = 0
-
-              }
-    }
+                 }
+      }
     
     
     @IBOutlet weak var t2: UITextField!
     @IBOutlet weak var t3: UITextField!
 
+    @IBOutlet weak var t1: UITextView!
     @IBOutlet weak var tapdone: UIButton!
-    @IBOutlet weak var t1: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -276,30 +276,30 @@ class TextViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
 //        progressView.clipsToBounds = true
 //
         
-        t1.addTarget(self, action: #selector(TextViewController.textFieldDidChange(_:)), for: .editingChanged)
+//        t1.addTarget(self, action: #selector(TextViewController.textFieldDidChange(_:)), for: .editingChanged)
 
         t1.layer.cornerRadius = 5.0
         t1.clipsToBounds = true
         t1.delegate = self
          t1.text = ""
          t1.textColor = UIColor.white
+//
+//        t2.layer.cornerRadius = 5.0
+//        t2.clipsToBounds = true
+//        t2.delegate = self
+//         t2.text = ""
+//         t2.textColor = UIColor.white
+//
+//        t3.layer.cornerRadius = 5.0
+//        t3.clipsToBounds = true
+//        t3.delegate = self
+//         t3.text = ""
+//         t3.textColor = UIColor.white
         
-        t2.layer.cornerRadius = 5.0
-        t2.clipsToBounds = true
-        t2.delegate = self
-         t2.text = ""
-         t2.textColor = UIColor.white
-        
-        t3.layer.cornerRadius = 5.0
-        t3.clipsToBounds = true
-        t3.delegate = self
-         t3.text = ""
-         t3.textColor = UIColor.white
-        
-        self.addLineToView(view: t1, position:.LINE_POSITION_BOTTOM, color: UIColor.white, width: 0.5)
-        
-        self.addLineToView(view: t2, position:.LINE_POSITION_BOTTOM, color: UIColor.white, width: 0.5)
-        self.addLineToView(view: t3, position:.LINE_POSITION_BOTTOM, color: UIColor.white, width: 0.5)
+//        self.addLineToView(view: t1, position:.LINE_POSITION_BOTTOM, color: UIColor.white, width: 0.5)
+//
+//        self.addLineToView(view: t2, position:.LINE_POSITION_BOTTOM, color: UIColor.white, width: 0.5)
+//        self.addLineToView(view: t3, position:.LINE_POSITION_BOTTOM, color: UIColor.white, width: 0.5)
 
 
 //
@@ -359,26 +359,26 @@ class TextViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
             t1.text = ""
         }
         
-        
-        if texttwo != "" {
-
-            t2.text = texttwo
-        } else {
-
-            t2.text = ""
-
-        }
-        
-        if textthree != "" {
-
-               t3.text = textthree
-            
-           } else {
-
-               t3.text = ""
-
-           }
-        
+//
+//        if texttwo != "" {
+//
+//            t2.text = texttwo
+//        } else {
+//
+//            t2.text = ""
+//
+//        }
+//
+//        if textthree != "" {
+//
+//               t3.text = textthree
+//
+//           } else {
+//
+//               t3.text = ""
+//
+//           }
+//
    
         
 //        newText = textView.text
@@ -585,7 +585,7 @@ class TextViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
     var newText = String()
     
 
-    func textViewDidChange(_ textView: UITextView) {
+//    func textViewDidChange(_ textView: UITextView) {
         
         
         
@@ -607,7 +607,7 @@ class TextViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
         //            tapsave.isUserInteractionEnabled = true
         //            characterslabel.alpha = 0
         //        }
-    }
+//    }
     
     func setDoneOnKeyboard() {
         let keyboardToolbar = UIToolbar()
@@ -625,7 +625,7 @@ class TextViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
     @IBOutlet weak var tapsave: UIButton!
     @IBAction func tapContinue(_ sender: Any) {
         
-        if t1.text == "" && t2.text == "" && t3.text == ""   {
+        if t1.text == ""  {
 
         
         self.dismiss(animated: true, completion: nil)
@@ -634,12 +634,14 @@ class TextViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
 
         
         
-        if t1.text != "" && t2.text == ""  {
+        if t1.text != ""   {
+            
+            ref?.child("Entries").child(uid).child(selectedbookid).removeValue()
+
             
             ref?.child("Favorites").child(uid).child(selectedbookid).updateChildValues([ "Name" : selectedtitle, "Headline1" : headlines[0], "Image" : selectedbackground, "Submitted" : t1.text!, "LastUpdated" : todaysdate])
 
                             
-                ref?.child("Entries").child(uid).child(selectedbookid).removeValue()
                 
                 ref?.child("Entries").child(uid).childByAutoId().updateChildValues(["Author" : selectedauthorname, "Name" : selectedtitle, "Headline1" : headlines[0], "Author Image" : selectedauthorimage, "Image" : selectedbackground, "Text0" : t1.text!, "Date" : dateformat])
             
@@ -650,34 +652,6 @@ class TextViewController: UIViewController, UITextViewDelegate, UITextFieldDeleg
         }
                 
             
-        if t2.text != "" && t1.text != "" && t3.text == ""   {
-                
-                ref?.child("Favorites").child(uid).child(selectedbookid).updateChildValues([ "Name" : selectedtitle, "Headline1" : headlines[0], "Image" : selectedbackground, "Submitted" : t1.text!, "LastUpdated" : todaysdate])
-
-                
-                ref?.child("Entries").child(uid).childByAutoId().updateChildValues(["Author" : selectedauthorname, "Name" : selectedtitle, "Headline1" : headlines[0], "Author Image" : selectedauthorimage, "Image" : selectedbackground, "Text1" : t2.text!, "Text0" : t1.text!, "Date" : dateformat])
-                
-                self.dismiss(animated: true, completion: nil)
-
-
-            }
-            
-
-            
-            if t2.text != "" && t1.text != "" && t3.text != ""  {
-                
-                ref?.child("Favorites").child(uid).child(selectedbookid).updateChildValues([ "Name" : selectedtitle, "Headline1" : headlines[0], "Image" : selectedbackground, "Submitted" : t1.text!, "LastUpdated" : todaysdate])
-
-                      
-                ref?.child("Entries").child(uid).childByAutoId().updateChildValues(["Author" : selectedauthorname, "Name" : selectedtitle, "Headline1" : headlines[0], "Author Image" : selectedauthorimage, "Image" : selectedbackground, "Text1" : t2.text!, "Text0" : t1.text!, "Text2" : t3.text!, "Date" : dateformat])
-                
-                self.dismiss(animated: true, completion: nil)
-
-
-                  }
-            
-            
-                        
     
             
         
